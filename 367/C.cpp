@@ -1,3 +1,18 @@
+/**
+ * Input
+ * The first line of the input contains a single integer n (2 ≤ n ≤ 100 000) — the number of strings.
+ * 
+ * The second line contains n integers ci (0 ≤ ci ≤ 109), the i-th of them is equal to the amount of 
+ * energy Vasiliy has to spent in order to reverse the i-th string.
+ * 
+ * Then follow n lines, each containing a string consisting of lowercase English letters. The total 
+ * length of these strings doesn't exceed 100 000.
+ * 
+ * Output
+ * If it is impossible to reverse some of the strings such that they will be located in lexicographical 
+ * order, print  - 1. Otherwise, print the minimum total amount of energy Vasiliy has to spent.
+ */
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -16,7 +31,7 @@ string reverse(string s) {
 	return s;
 }
 
-const ll INF = LLONG_MAX;
+const ll INF = 1e15;
 
 int main() {
 	int n;
@@ -39,24 +54,20 @@ int main() {
 	for (int i = 1; i < n; i++) {						
 		bool flag1 = false, flag2 = false;
 		bool f1 = compare(vs[i], vs[i-1]) >= 0, f2 = compare(reverse(vs[i]), vs[i-1]) >= 0;
-		if (f1 || f2) {
-			if (dp[i-1][0] != INF) {
-				if (f1)									
-					dp[i][0] = min(dp[i][0], dp[i-1][0]);
-				if (f2)									
-					dp[i][1] = min(dp[i][1], dp[i-1][0] + c[i]);				
-			}
+		if (f1 || f2) {			
+			if (f1)									
+				dp[i][0] = min(dp[i][0], dp[i-1][0]);
+			if (f2)									
+				dp[i][1] = min(dp[i][1], dp[i-1][0] + c[i]);				
 		} else {
 			flag1 = true;
 		}
 		bool f3 = compare(vs[i], reverse(vs[i-1])) >= 0, f4 = compare(reverse(vs[i]), reverse(vs[i-1])) >= 0;
 		if (f3 || f4) {
-			if (dp[i-1][1] != INF) {
-				if (f3)
-					dp[i][0] = min(dp[i][0], dp[i-1][1]);
-				if (f4)
-					dp[i][1] = min(dp[i][1], dp[i-1][1] + c[i]);				
-			}
+			if (f3)
+				dp[i][0] = min(dp[i][0], dp[i-1][1]);
+			if (f4)
+				dp[i][1] = min(dp[i][1], dp[i-1][1] + c[i]);				
 		} else{
 			flag2 = true;
 		}
