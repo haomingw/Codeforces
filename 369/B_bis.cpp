@@ -21,8 +21,10 @@ int main() {
 	}
 	int t = 0;
 	if (x == 0) t = 1;
-	for (int j = 0; j < n; j++) s1 += a[t][j];
-	for (int j = 0; j < n; j++) s2 += a[x][j];
+	for (int j = 0; j < n; j++) {
+		s1 += a[t][j];
+		s2 += a[x][j];
+	}
 	if (s1 <= s2) return !printf("-1\n");
 	a[x][y] = s1 - s2;	
 
