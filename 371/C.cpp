@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdio>
-#include <vector>
 #include <unordered_map>
 using namespace std;
 
@@ -15,19 +14,6 @@ ll convert(ll a) {
 		m *= 10;
 	}
 	return ans;
-}
-
-int solve(unordered_map<ll, ll>& h, ll s) {
-	int cnt = 0;
-	// clog << "query: ";
-	for (auto& a : h){
-		// clog << a.first << " ";
-		if (a.first == s) {
-			cnt += a.second;
-		}
-	}
-	// clog << " pattern: " << s << endl;
-	return cnt;
 }
 
 int main() {
