@@ -14,6 +14,7 @@ int main() {
     int n, t;
     cin >> n >> t;
     cin >> c;
+    // scanf("%*d%d%s",&t,c);
 
     int p = 0, cr = 0, pp;
     while (c[p] != '.') p++;
@@ -51,9 +52,7 @@ int main() {
             }
         }
     }
-    if (cr == 1)
-        cout << '1' << c << endl;
-    else
-        cout << c << endl;
+    if (cr) cout << '1';
+    cout << c << endl;
     return 0;
 }
