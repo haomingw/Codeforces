@@ -32,7 +32,7 @@ int main() {
     REP(i, k) cin >> d[i];
 
     ll ans = x * n;
-    int t, mana, gen;
+    int t, mana;
     for (int i = -1; i < m; i++) {
         t = a[i], mana = b[i];
         if (mana > s || i == -1) { t = x; mana = 0; }
