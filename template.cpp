@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdio>
+#include <cmath>
+#include <cstring>
 #include <string>
 #include <vector>
 #include <set>
@@ -10,7 +12,7 @@
 #include <unordered_map>
 using namespace std;
 
-#define FOR(i,a,b) for(int i=(a); i < (b); ++i)
+#define REPP(i,a,b) for(int i=(a); i < (b); ++i)
 #define REP(i,a) for(int i = 0; i < (a); ++i)
 #define PER(i,a) for(int i = (a) - 1; i >= 0; --i)
 #define SIZE(x) ((int)(x).size())
