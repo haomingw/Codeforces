@@ -32,7 +32,7 @@ int lcm(int a, int b) {
 }
 
 int main() {
-    int n, ans = -1;
+    int n, ans = 1;
     cin >> n;
     int a[n], visited[n];
     REP(i, n) scanf("%d", &a[i]);
@@ -56,10 +56,6 @@ int main() {
     for (auto it : hmap) {
         int val = it.second, tmp;
         tmp = val % 2 == 0 ? val / 2 : val;
-        if (ans < 0) {
-            ans = tmp;
-            continue;
-        }
         ans = lcm(ans, tmp);
     }
     cout << ans << endl;
