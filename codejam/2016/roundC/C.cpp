@@ -22,10 +22,21 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
+void solve() {
+    int J, P, S, K;
+    cin >> J >> P >> S >> K;
+    int ans =  J * P * min(S, K);
+    cout << ans << endl;
+    REP(i, J) REP(j, P) REP(k, min(S, K)) {
+        printf("%d %d %d\n", i + 1, j + 1, (i + j + k) % S + 1);
+    }
+}
+
 int main() {
     int T; cin >> T;
     REP(i, T) {
         printf("Case #%d: ", i + 1);
+        solve();
     }
     return 0;
 }
