@@ -22,10 +22,15 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
+void solve() {
+
+}
+
 int main() {
     int T; cin >> T;
     REP(i, T) {
         printf("Case #%d: ", i + 1);
+        solve();
     }
     return 0;
 }
