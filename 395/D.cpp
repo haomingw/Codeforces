@@ -22,29 +22,14 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int maxn = 1e5 + 5;
-int a[maxn][2], b[maxn], c[maxn];
-
 int main() {
     int n; cin >> n;
-    int u, v;
-    REP(i, n - 1) {
-        scanf("%d%d", &u, &v);
-        a[i][0] = u;
-        a[i][1] = v;
+    cout << "YES" << endl;
+    int x, y, color;
+    REP(i, n) {
+        scanf("%d%d%*d%*d", &x, &y);
+        color = (x & 1) + 2 * (y & 1) + 1;
+        cout << color << endl;
     }
-    REP(i, n) scanf("%d", &c[i + 1]);
-    int bad = 0;
-    REP(i, n - 1) {
-        u = a[i][0], v = a[i][1];
-        if (c[u] != c[v]) {
-            bad++;
-            b[u]++, b[v]++;
-        }
-    }
-    REPP(i, 1, n + 1) {
-        if (b[i] == bad) return !printf("YES\n%d\n", i);
-    }
-    cout << "NO" << endl;
     return 0;
 }
