@@ -28,7 +28,7 @@ int main() {
     int c = max(a, b), d = min(a, b);
     if (c < k) return !printf("-1\n");
     if (c % k != 0 && d < k) return !printf("-1\n");
-    int ans = a / k + b / k ;
+    int ans = a / k + b / k;
     cout << ans << endl;
     return 0;
 }
