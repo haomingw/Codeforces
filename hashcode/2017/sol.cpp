@@ -77,8 +77,8 @@ int main() {
         }
     }
 
+    ll a[V], x[V];
     REP(c, C) {
-        ll a[V], x[V];
         memset(a, 0, sizeof(a));
         memset(x, 0, sizeof(x));
         // clog << c << " serves " << cache[c].size() << " endpoints" << endl;
