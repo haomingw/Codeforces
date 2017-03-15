@@ -22,15 +22,30 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
+const int maxn = 1005;
+int a[maxn], b[maxn];
+
 int main() {
-    int n, x;
-    cin >> n >> x;
-    int ans = x;
-    if (n & 1) {
-        if (ans == 0) ans = 1;
-        else if (ans == 1) ans = 0;
+    int n;
+    string s, t;
+    cin >> n >> s >> t;
+    REP(i, n) {
+        a[i] = s[i] - '0';
+        b[i] = t[i] - '0';
     }
-    ans = (ans + n / 2) % 3;
-    cout << ans << endl;
+    sort(a, a + n);
+    sort(b, b + n);
+    int cnt = 0, p1 = 0, p2 = 0;
+    while (p2 < n) {
+        if (a[p1] <= b[p2]) p1++, cnt++;
+        p2++;
+    }
+    cout << n - cnt << endl;
+    p1 = p2 = cnt = 0;
+    while (p2 < n) {
+        if (a[p1] < b[p2]) p1++, cnt++;
+        p2++;
+    }
+    cout << cnt << endl;
     return 0;
 }
