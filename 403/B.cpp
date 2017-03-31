@@ -22,19 +22,25 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int maxn = 1e5 + 5;
-bool a[maxn];
+const int maxn = 60005;
+int a[maxn], v[maxn];
 
 int main() {
     int n;
     scanf("%d", &n);
-    int x, ans = 0, cnt = 0;
-    REP(i, 2 * n) {
-        scanf("%d", &x);
-        if (!a[x]) a[x] = true, cnt++;
-        else a[x] = false, cnt--;
-        ans = max(ans, cnt);
+    REP(i, n) scanf("%d", &a[i]);
+    REP(i, n) scanf("%d", &v[i]);
+    double t0 = 0, t1 = 1e9;
+    while (t1 - t0 > 1e-10) {
+        double t = (t0 + t1) / 2;
+        double lmax = 0, rmin = 1e9;
+        REP(i, n) {
+            lmax = max(lmax, a[i] - t * v[i]);
+            rmin = min(rmin, a[i] + t * v[i]);
+        }
+        if (lmax < rmin) t1 = t;
+        else t0 = t;
     }
-    cout << ans << endl;
+    printf("%.10f\n", t1);
     return 0;
 }
