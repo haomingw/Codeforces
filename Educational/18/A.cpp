@@ -22,23 +22,20 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-int a[55];
+const int maxn = 2e5 + 5;
+int a[maxn];
 
 int main() {
-    int n, k;
-    cin >> n >> k;
-    REP(i, k - 1) a[i] = i;
-    string s;
-    REPP(i, k - 1, n) {
-        cin >> s;
-        if (s[0] == 'Y') a[i] = i;
-        else a[i] = a[i - k + 1];
+    int n;
+    scanf("%d", &n);
+    REP(i, n) scanf("%d", &a[i]);
+    sort(a, a + n);
+    int cnt = 0, x = 2e9;
+    REP(i, n - 1) {
+        int d = a[i + 1] - a[i];
+        if (x > d) x = d, cnt = 1;
+        else if (x == d) cnt++;
     }
-    REP(i, n) {
-        s = char('A' + a[i] / 26);
-        s += char('a' + a[i] % 26);
-        cout << s << " ";
-    }
-    cout << endl;
+    cout << x << " " << cnt << endl;
     return 0;
 }
