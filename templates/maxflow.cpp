@@ -1,13 +1,13 @@
 typedef int F;
 #define F_INF (1<<29)
 
-struct MaxFlow{
-    static const int MAXV = 10000, MAXE = 10000;
+namespace flow {
+    const int MAXV = 10000, MAXE = 10000;
     F cap[MAXE],flow[MAXE];
     int to[MAXE],prev[MAXE],last[MAXV],used[MAXV],level[MAXV];
     int V,E;
 
-    MaxFlow(int n){
+    void init(int n){
         int i;
         V = n; E = 0;
         REP(i,V) last[i] = -1;
