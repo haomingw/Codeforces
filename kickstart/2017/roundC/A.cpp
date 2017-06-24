@@ -24,7 +24,27 @@ typedef long long ll;
 typedef pair<int, int> pii;
 
 void solve() {
-
+    string s, t = "";
+    cin >> s;
+    int n = s.size();
+    if (n & 1) {
+        cout << "AMBIGUOUS" << endl;
+        return;
+    }
+    REP(i, n) t += "*";
+    int sum, prev = 0;
+    for (int i = 0; i < n; i += 2) {
+        sum = s[i] - 'A';
+        prev = (sum - prev + 26) % 26;
+        t[i + 1] = char(prev + 'A');
+    }
+    prev = 0;
+    for (int i = n - 1; i >= 0; i -= 2) {
+        sum = s[i] - 'A';
+        prev = (sum - prev + 26) % 26;
+        t[i - 1] = char(prev + 'A');
+    }
+    cout << t << endl;
 }
 
 int main() {
