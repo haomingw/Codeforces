@@ -23,16 +23,31 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-void solve() {
+int a, b;
+string s;
 
+void parse() {
+    a = (s[0] - '0') * 10 + s[1] - '0';
+    b = (s[3] - '0') * 10 + s[4] - '0';
+}
+
+void add() {
+    b++;
+    if (b >= 60) b -= 60, a++;
+    if (a == 24) a = 0;
+}
+
+bool isPalindrome() {
+    return a / 10 == b % 10 && a % 10 == b / 10;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0), cin.tie(0);
-    int T; cin >> T;
-    REP(i, T) {
-        printf("Case #%d: ", i + 1);
-        solve();
+    cin >> s;
+    parse();
+    REP(i, 3600) {
+        if (isPalindrome())
+            return !printf("%d\n", i);
+        add();
     }
     return 0;
 }
