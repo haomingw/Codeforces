@@ -45,7 +45,7 @@ int main() {
     REP(i, n) {
         scanf("%d %d", &a, &b);
         ll product = 1LL * a * b;
-        cout << (solve(product) ? "YES" : "NO") << endl;
+        printf(solve(product) ? "YES\n" : "NO\n");
     }
     return 0;
 }
