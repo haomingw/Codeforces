@@ -36,10 +36,9 @@ int solve() {
     cin >> n >> p;
     REP(i, n) cin >> r[i];
     REP(i, n) REP(j, p) cin >> q[i][j];
-    REP(i, n) {
-        memset(pos, 0, sizeof(pos));
+    memset(pos, 0, sizeof(pos));
+    REP(i, n)
         sort(q[i], q[i] + p);
-    }
     int ans = 0;
     while (true) {
         int l = -1e9, h = 1e9, ind = 0;
