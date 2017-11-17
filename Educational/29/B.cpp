@@ -22,3 +22,27 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
+const int inf = 1e9;
+const int maxn = 105;
+int a[maxn];
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    REP(i, 2 * n) scanf("%d", a + i);
+    vector<int> v;
+    int ans = inf;
+    REP(i, 2 * n) REPP(j, i + 1, 2 * n) {
+        v.clear();
+        REP(k, 2 * n) if (k != i && k != j)
+            v.push_back(a[k]);
+        sort(ALL(v));
+        int sum = 0;
+        REP(k, n - 1) {
+            sum += v[2 * k + 1] - v[2 * k];
+        }
+        ans = min(ans, sum);
+    }
+    cout << ans << endl;
+    return 0;
+}
