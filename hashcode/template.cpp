@@ -22,12 +22,12 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-
 int main(int argc, char* argv[]) {
     ios_base::sync_with_stdio(0), cin.tie(0);
 #ifdef LOCAL
     assert(argc == 2);
     string input = argv[1];
+    assert(SZ(input) > 3 && input.substr(SZ(input) - 3) == ".in");
     string output = input.substr(0, input.size() - 3) + ".out";
 
     freopen(input.c_str(), "r", stdin);

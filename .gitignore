@@ -2,4 +2,5 @@ a.out
 *.o
 *.in
 *.out
+*.pdf
 .DS_Store
