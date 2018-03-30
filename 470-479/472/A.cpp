@@ -29,7 +29,7 @@ bool solve() {
     REPP(i, 1, n) if (s[i] == s[i - 1] && s[i] != '?') return false;
     REP(i, n) if (s[i] == '?') {
         if (i == 0 || i == n - 1) return true;
-        if (s[i + 1] == s[i - 1] || s[i - 1] == '?' || s[i + 1] == '?') return true;
+        if (s[i + 1] == s[i - 1] || s[i + 1] == '?') return true;
     }
     return false;
 }
