@@ -25,7 +25,6 @@ typedef pair<int, int> pii;
 
 const int inf = 1e9;
 int hd, ad, hk, ak, buff, debuff;
-vector<string> actions;
 
 int calc(int b, int d) {
     int h1 = hd, a1 = ad, h2 = hk, a2 = ak;
