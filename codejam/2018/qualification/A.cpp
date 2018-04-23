@@ -29,7 +29,8 @@ string s;
 
 void reduce(int& damage) {
     int n = s.size();
-    for (int i = n - 1; i > 0; i++) if (a[i]) {
+    PER(i, n) if (a[i]) {
+        assert(i > 0);
         a[i]--, a[i - 1]++;
         damage -= 1 << (i - 1);
         break;
