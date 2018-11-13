@@ -22,8 +22,27 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-void solve() {
+const int maxn = 7005;
+ll a[maxn];
 
+void solve() {
+    int n;
+    cin >> n;
+    REP(i, n) cin >> a[i];
+    sort(a, a + n);
+    map<ll, ll> mp;
+    mp[a[n - 1]]++;
+    ll ans = 0;
+    for (int i = n - 2; i >= 0; i--) {
+        REP(j, i) if (a[i] > 0 && mp.count(a[i] * a[j]))
+            ans += mp[a[i] * a[j]];
+        mp[a[i]]++;
+    }
+    if (mp.count(0)) {
+        ans += mp[0] * (mp[0] - 1) / 2 * (n - mp[0]);
+        if (mp[0] > 2) ans += mp[0] * (mp[0] - 1) * (mp[0] - 2) / 6;
+    }
+    cout << ans << endl;
 }
 
 int main() {
