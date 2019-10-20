@@ -27,11 +27,12 @@ void solve() {
 }
 
 int main() {
-    ios_base::sync_with_stdio(0), cin.tie(0);
-    int T; cin >> T;
-    REP(i, T) {
-        cout << "Case #" << i + 1 << ": ";
-        solve();
-    }
-    return 0;
+  ios_base::sync_with_stdio(0), cin.tie(0);
+  int T;
+  cin >> T;
+  REP(i, T) {
+    cout << "Case #" << i + 1 << ": ";
+    solve();
+  }
+  return 0;
 }
