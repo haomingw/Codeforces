@@ -9,8 +9,10 @@
 #include <utility>
 #include <algorithm>
 #include <map>
+#include <bitset>
 #include <cassert>
 using namespace std;
+
 #define REPP(i,a,b) for(int i = (a); i < (b); ++i)
 #define REP(i,a) for(int i = 0; i < (a); ++i)
 #define PER(i,a) for(int i = (a) - 1; i >= 0; --i)
