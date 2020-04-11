@@ -9,7 +9,9 @@
 #include <utility>
 #include <algorithm>
 #include <map>
+#include <unordered_map>
 #include <bitset>
+#include <numeric>
 #include <cassert>
 using namespace std;
 
