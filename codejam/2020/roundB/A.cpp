@@ -26,55 +26,35 @@ typedef long long ll;
 typedef pair<int, int> pii;
 
 void solve() {
-  int a, b;
-  cin >> a >> b;
-  int x = abs(a), y = abs(b);
-  string s;
-  while (max(x, y) > 1) {
-    if (((x ^ y) & 1) == 0) {
-      cout << "IMPOSSIBLE" << endl;
-      return;
-    }
-    if (((x / 2) ^ (y / 2)) & 1) {
-      // plus 1
-      if (x & 1) {
-        s.push_back('E');
-        x--;
-      } else {
-        s.push_back('N');
-        y--;
-      }
-    } else {
-      // minus 1
-      if (x & 1) {
-        s.push_back('W');
-        x++;
-      } else {
-        s.push_back('S');
-        y++;
-      }
-    }
-    x /= 2, y /= 2;
-  }
-  if (x == y) {
+  int x, y;
+  cin >> x >> y;
+  if ((x + y) % 2 == 0) {
     cout << "IMPOSSIBLE" << endl;
     return;
   }
-  if (x) s.push_back('E');
-  if (y) s.push_back('N');
-  int n = s.size();
-  if (a < 0) {
-    REP(i, n) {
-      if (s[i] == 'E') s[i] = 'W';
-      else if (s[i] == 'W') s[i] = 'E';
+  int l = 0;
+  while ((1 << l) <= (abs(x) + abs(y)) / 2) l++;
+  string s;
+  for (int i = l; i >= 0; i--) {
+    if (abs(x) > abs(y)) {
+      if (x > 0) {
+        x -= 1 << i;
+        s.push_back('E');
+      } else {
+        x += 1 << i;
+        s.push_back('W');
+      }
+    } else {
+      if (y > 0) {
+        y -= 1 << i;
+        s.push_back('N');
+      } else {
+        y += 1 << i;
+        s.push_back('S');
+      }
     }
   }
-  if (b < 0) {
-    REP(i, n) {
-      if (s[i] == 'N') s[i] = 'S';
-      else if (s[i] == 'S') s[i] = 'N';
-    }
-  }
+  reverse(s.begin(), s.end());
   cout << s << endl;
 }
 
